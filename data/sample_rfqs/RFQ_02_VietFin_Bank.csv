@@ -1,0 +1,6 @@
+﻿STT,HangMuc,SoLuong,DonVi,ThongSoBatBuoc,NganSachDuKien
+1,Switch Core Layer 3 24 Port 10G SFP+,2,Bộ,"24x 10G SFP+, Dual Redundant PSU, L3 OSPF/BGP",170000000
+2,Next-Gen Firewall High-End 2.5Gbps,1,Bộ,"NGFW 2.5Gbps, Dual Redundant PSU, HA Active-Passive",140000000
+3,Thiết bị Chống DDoS Chuyên dụng 10Gbps Inline,1,Bộ,L7 Anti-DDoS 10Gbps Inline Bypass (Radware/Arbor) [NGOÀI DANH MỤC],220000000
+4,Dịch vụ Tích hợp Hạ tầng & An ninh Chuyên sâu,1,Gói,"Cấu hình Core L3 HA, tích hợp DDoS, chuyển đổi 0 downtime",35000000
+5,Gói Bảo trì Kỹ thuật SLA 24/7/4h (1 Năm),1,Gói,"Cam kết 24/7/365, phản ứng tại chỗ trong 4 giờ",25000000

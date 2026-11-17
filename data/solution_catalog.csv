@@ -1,0 +1,14 @@
+﻿product_id,product_name,category,specs,ports,poe,poe_budget_w,throughput_gbps,redundant_psu,lead_time_days,unit_price,unit,warranty_months
+SW-ACC-24P,Switch Access 24 Port Gigabit PoE+,Switching,"24x 1GbE PoE+ (370W), 4x 10G SFP+ Uplink, Layer 2+, Fanless/Quiet, VLAN/QoS",24,True,370,128.0,False,3,18500000,Thiết bị,36
+SW-ACC-48P,Switch Access 48 Port Gigabit PoE+,Switching,"48x 1GbE PoE+ (740W), 4x 10G SFP+ Uplink, Layer 2+, Stacking support",48,True,740,176.0,True,5,34200000,Thiết bị,36
+SW-CORE-L3,Switch Core Layer 3 24 Port 10G SFP+,Switching,"24x 10G SFP+, 4x 40G QSFP+, L3 Routing (OSPF, BGP, VRRP), Dual Redundant PSU",28,False,0,800.0,True,10,85000000,Thiết bị,36
+FW-ENT-500,Next-Gen Firewall Enterprise 500 Mbps,Security,"UTM Firewall, IPS/Antivirus/Web Filter 500Mbps, 8x GbE RJ45, 2x 10G SFP+, 100 concurrent VPN tunnels",10,False,0,2.0,False,5,42000000,Thiết bị,36
+FW-ENT-2G,Next-Gen Firewall Enterprise High-End 2.5 Gbps,Security,"NGFW IPS/Threat Protection 2.5 Gbps, 16x GbE RJ45, 4x 10G SFP+, Dual Power Supply, High Availability (HA)",20,False,0,10.0,True,14,135000000,Thiết bị,36
+AP-WIFI6-PRO,Access Point Wi-Fi 6 Băng Tần Kép Chuyên Dụng,Wireless,"Wi-Fi 6 (802.11ax), Dual-Band 2x2 MU-MIMO, Tốc độ 1.8 Gbps, 200+ Active Users, Hỗ trợ PoE 802.3at",1,True,0,1.8,False,3,6200000,Thiết bị,24
+AP-WIFI6-IND,Access Point Wi-Fi 6 Chuẩn Công Nghiệp / Ngoài Trời IP67,Wireless,"Outdoor/Industrial IP67, Băng tần kép 4x4 MU-MIMO, Tốc độ 3.0 Gbps, Chống sét 6kV, Bán kính phủ sóng 150m",2,True,0,3.0,False,7,14800000,Thiết bị,24
+RACK-42U,Tủ mạng Rack 42U D1000 Chuẩn Server Data Center,Infrastructure,"Kích thước 42U W600 x D1000, Cửa lưới thoáng khí, 4 quạt tản nhiệt, Thanh nguồn PDU 8 cổng, Sơn tĩnh điện",0,False,0,0.0,False,3,9800000,Bộ,24
+CAB-CAT6-BOX,Thùng cáp mạng Cat6 UTP 305m CommScope/AMP chính hãng,Cabling,"Cáp mạng đồng nguyên chất Cat6 UTP 23AWG, 250MHz, chuẩn chống cháy CM, 305m/cuộn",0,False,0,1.0,False,2,2850000,Cuộn,240
+SVC-DEPLOY-BASIC,"Dịch vụ Khảo sát, Lắp đặt & Cấu hình Mạng Tiêu chuẩn",Services,"Đo kiểm, thi công cáp, lắp đặt thiết bị tủ rack, cấu hình VLAN, WiFi SSID, bàn giao tài liệu kỹ thuật",0,False,0,0.0,False,0,12000000,Gói,12
+SVC-DEPLOY-ENT,Dịch vụ Tích hợp Hạ tầng & An ninh Mạng Chuyên sâu,Services,"Thi công hạ tầng hoàn chỉnh, cấu hình HA Firewall, L3 Routing OSPF, phân tách vùng bảo mật, kiểm thử bảo mật & tải",0,False,0,0.0,False,0,28000000,Gói,12
+SVC-SLA-STANDARD,Gói Bảo trì & Hỗ trợ Kỹ thuật SLA 8x5xNBD (1 Năm),Services,"Hỗ trợ giờ hành chính 8h/ngày, 5 ngày/tuần, xử lý thay thế thiết bị trong ngày làm việc tiếp theo (NBD), kiểm tra định kỳ hàng quý",0,False,0,0.0,False,0,8000000,Gói/Năm,12
+SVC-SLA-PREMIUM,Gói Bảo trì Chuyên nghiệp SLA 24/7/4h (1 Năm),Services,"Hỗ trợ kỹ thuật khẩn cấp 24/7/365, kỹ sư có mặt tại chỗ trong 4 giờ, thiết bị dự phòng thay thế tức thì on-site",0,False,0,0.0,False,0,22000000,Gói/Năm,12

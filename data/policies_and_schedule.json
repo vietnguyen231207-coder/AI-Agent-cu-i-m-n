@@ -1,0 +1,77 @@
+{
+  "company_name": "Công ty Cổ phần Công nghệ & Mạng Thiên Minh (Thien Minh Networks)",
+  "discount_policies": [
+    {
+      "tier_name": "Dự án Nhỏ (Tier 1)",
+      "min_value": 0,
+      "max_value": 300000000,
+      "max_allowed_discount_pct": 5.0,
+      "approval_level": "Trưởng phòng Kinh doanh tự duyệt"
+    },
+    {
+      "tier_name": "Dự án Vừa (Tier 2)",
+      "min_value": 300000000,
+      "max_value": 800000000,
+      "max_allowed_discount_pct": 8.0,
+      "approval_level": "Trưởng phòng Kinh doanh tự duyệt"
+    },
+    {
+      "tier_name": "Dự án Lớn (Tier 3)",
+      "min_value": 800000000,
+      "max_value": 2000000000,
+      "max_allowed_discount_pct": 12.0,
+      "approval_level": "Trưởng phòng Kinh doanh tự duyệt"
+    },
+    {
+      "tier_name": "Dự án Trọng điểm (Tier 4)",
+      "min_value": 2000000000,
+      "max_value": 99999999999,
+      "max_allowed_discount_pct": 15.0,
+      "approval_level": "Trưởng phòng Kinh doanh tự duyệt"
+    }
+  ],
+  "escalation_rules": [
+    {
+      "rule_id": "ESC_DISCOUNT",
+      "condition": "Tỷ lệ chiết khấu đề xuất vượt quá hạn mức tối đa của Tier",
+      "severity": "HIGH",
+      "action": "Chuyển duyệt Ban Giám Đốc / Hội đồng Phê duyệt"
+    },
+    {
+      "rule_id": "ESC_OUT_OF_CATALOG",
+      "condition": "Hồ sơ có chứa thiết bị hoặc dịch vụ nằm ngoài Danh mục Giải pháp chính thức",
+      "severity": "HIGH",
+      "action": "Chuyển duyệt Kỹ thuật trưởng & Giám đốc Sản phẩm để thẩm định nguồn cung"
+    },
+    {
+      "rule_id": "ESC_SCHEDULE_TIGHT",
+      "condition": "Thời gian yêu cầu triển khai của khách hàng ngắn hơn Tổng thời gian tối thiểu (Lead-time thiết bị + Thời gian thi công thực tế)",
+      "severity": "CRITICAL",
+      "action": "Chuyển duyệt Trưởng phòng Vận hành kỹ thuật để xác nhận phương án tăng ca / thuê ngoài"
+    },
+    {
+      "rule_id": "ESC_SLA_247_URGENT",
+      "condition": "Yêu cầu cam kết SLA 24/7 phản ứng dưới 2 giờ hoặc tại địa bàn ngoài bán kính hỗ trợ",
+      "severity": "HIGH",
+      "action": "Chuyển duyệt Hội đồng để tính toán chi phí nhân sự trực ca riêng"
+    },
+    {
+      "rule_id": "ESC_BUDGET_DEFICIT",
+      "condition": "Ngân sách trần của khách hàng thấp hơn 70% giá vốn tối thiểu của giải pháp hợp lệ",
+      "severity": "FATAL_REJECT",
+      "action": "Đề xuất Loại bỏ / Từ chối tham gia dự án (Không khả thi thương mại)"
+    }
+  ],
+  "deployment_capacity": {
+    "total_engineer_teams": 4,
+    "team_capacity_projects_per_month": 8,
+    "current_active_projects": 5,
+    "available_slots_next_month": 3,
+    "earliest_deployment_start_date": "2026-11-25",
+    "standard_deployment_duration_days": {
+      "small_office": 5,
+      "medium_building": 10,
+      "datacenter_or_bank": 20
+    }
+  }
+}

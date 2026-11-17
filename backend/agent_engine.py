@@ -22,13 +22,27 @@ class ThienMinhAIAgent:
 
     def load_reference_data(self):
         """Tải danh mục giải pháp và chính sách năng lực lịch trình"""
-        if os.path.exists(self.catalog_path):
-            self.catalog_df = pd.read_csv(self.catalog_path, encoding='utf-8-sig')
+        cat_path = self.catalog_path
+        if not os.path.exists(cat_path):
+            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            alt_path = os.path.join(base_dir, self.catalog_path)
+            if os.path.exists(alt_path):
+                cat_path = alt_path
+
+        if os.path.exists(cat_path):
+            self.catalog_df = pd.read_csv(cat_path, encoding='utf-8-sig')
         else:
             self.catalog_df = pd.DataFrame()
 
-        if os.path.exists(self.policies_path):
-            with open(self.policies_path, 'r', encoding='utf-8') as f:
+        pol_path = self.policies_path
+        if not os.path.exists(pol_path):
+            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            alt_path = os.path.join(base_dir, self.policies_path)
+            if os.path.exists(alt_path):
+                pol_path = alt_path
+
+        if os.path.exists(pol_path):
+            with open(pol_path, 'r', encoding='utf-8') as f:
                 self.policies = json.load(f)
         else:
             self.policies = {

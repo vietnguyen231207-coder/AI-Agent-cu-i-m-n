@@ -23,6 +23,16 @@ from backend.export_docs import (
 from backend.gemini_service import gemini_agent
 
 PORT = 8080
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+def get_file_path(rel_path):
+    if os.path.exists(rel_path):
+        return rel_path
+    abs_path = os.path.join(BASE_DIR, rel_path)
+    if os.path.exists(abs_path):
+        return abs_path
+    return rel_path
+
 agent = ThienMinhAIAgent()
 
 # Bộ nhớ tạm lưu trữ session dự án gần nhất
@@ -39,13 +49,13 @@ def extract_input_data(content_type, body):
         if input_type == 'sample':
             sample_id = payload.get('sample_id', 'alpha')
             if sample_id == 'alpha':
-                parsed_data = parse_docx('data/sample_rfqs/RFQ_01_Alpha_LAN_WiFi.docx')
+                parsed_data = parse_docx(get_file_path('data/sample_rfqs/RFQ_01_Alpha_LAN_WiFi.docx'))
                 source_name = 'AlphaTech VN (Mẫu Chuẩn)'
             elif sample_id == 'vietfin':
-                parsed_data = parse_docx('data/sample_rfqs/RFQ_02_VietFin_Bank.docx')
+                parsed_data = parse_docx(get_file_path('data/sample_rfqs/RFQ_02_VietFin_Bank.docx'))
                 source_name = 'VietFin Bank (Mẫu Chuyển Duyệt)'
             elif sample_id == 'ankhang':
-                parsed_data = parse_docx('data/sample_rfqs/RFQ_03_BenhVien_AnKhang.docx')
+                parsed_data = parse_docx(get_file_path('data/sample_rfqs/RFQ_03_BenhVien_AnKhang.docx'))
                 source_name = 'BV An Khang (Mẫu Đề Xuất Loại)'
         elif input_type == 'google_sheets':
             url = payload.get('url', '')
@@ -184,18 +194,24 @@ class ThienMinhRequestHandler(BaseHTTPRequestHandler):
                 self.send_json({'error': 'Chưa có dữ liệu dự án tương ứng để xuất file.'}, 404)
                 return
 
-            os.makedirs('exports', exist_ok=True)
+            import tempfile
+            export_dir = '/tmp/exports' if os.environ.get('VERCEL') else (os.path.join(tempfile.gettempdir(), 'exports') if not os.access('.', os.W_OK) else get_file_path('exports'))
+            try:
+                os.makedirs(export_dir, exist_ok=True)
+            except Exception:
+                export_dir = tempfile.gettempdir()
+
             out_file = None
             filename = f"{doc_type}_{target_state['receipt_classification']['rfq_code']}.docx"
 
             if doc_type == 'requirements_matrix':
-                out_file = f"exports/Matrix_{target_state['receipt_classification']['rfq_code']}.docx"
+                out_file = os.path.join(export_dir, f"Matrix_{target_state['receipt_classification']['rfq_code']}.docx")
                 export_requirements_matrix_docx(target_state, out_file)
             elif doc_type == 'official_quotation':
-                out_file = f"exports/Quotation_{target_state['receipt_classification']['rfq_code']}.docx"
+                out_file = os.path.join(export_dir, f"Quotation_{target_state['receipt_classification']['rfq_code']}.docx")
                 export_official_quotation_docx(target_state, out_file)
             elif doc_type == 'approval_form':
-                out_file = f"exports/Approval_{target_state['receipt_classification']['rfq_code']}.docx"
+                out_file = os.path.join(export_dir, f"Approval_{target_state['receipt_classification']['rfq_code']}.docx")
                 export_approval_form_docx(target_state, out_file)
             
             if out_file and os.path.exists(out_file):
